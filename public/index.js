@@ -36,9 +36,16 @@ weatherResult.style.display = "block";
 
 weatherResult.innerHTML = `
     <h2>${place.name}</h2>
+
     <p><strong>Country:</strong> ${place.country}</p>
-    <p><strong>Temperature:</strong> ${weatherData.current.temperature_2m} °C</p>
-    <p><strong>Wind Speed:</strong> ${weatherData.current.wind_speed_10m} km/h</p>
+
+    <p>🌡 Temperature: ${weatherData.current.temperature_2m} °C</p>
+
+    <p>🌬 Wind Speed: ${weatherData.current.wind_speed_10m} km/h</p>
+
+    <p>📍 Latitude: ${latitude}</p>
+
+    <p>📍 Longitude: ${longitude}</p>
 `;
 
 });
