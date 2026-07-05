@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Earthquakes</title>
+</head>
+<body>
+
+<h1>Recent Earthquakes</h1>
+<div id="eq-data">Loading...</div>
+
+<script>
+async function loadEarthquakes() {
+    const res = await fetch("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson");
+    const data = await res.json();
+
+    const quakes = data.features.slice(0, 10);
+
+    document.getElementById("eq-data").innerHTML =
+        quakes.map(q => `
+            <p>
+                🌍 Magnitude: ${q.properties.mag} <br>
+                📍 Place: ${q.properties.place}
+            </p>
+        `).join("");
+}
+
+loadEarthquakes();
+</script>
+
+</body>
+</html>
